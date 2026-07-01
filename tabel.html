@@ -19,6 +19,7 @@
           <th>NIM</th>
           <th>Jenis Layanan</th>
           <th>Keterangan</th>
+          <th>Aksi</th>
         </tr>
       </thead>
       <tbody id="dataTable"></tbody>
@@ -27,6 +28,46 @@
     <div class="btn-group">
       <a href="index.html" class="btn-link">Kembali ke Form</a>
       <button id="hapusSemua" class="danger">Hapus Semua Data</button>
+    </div>
+  </div>
+
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Edit Data</h2>
+      <form id="editForm">
+        <input type="hidden" id="editIndex" />
+
+        <div class="form-group">
+          <label for="editNama">Nama</label>
+          <input type="text" id="editNama" required />
+        </div>
+
+        <div class="form-group">
+          <label for="editNim">NIM</label>
+          <input type="text" id="editNim" maxlength="8" pattern="[0-9]{8}" inputmode="numeric" required />
+          <small>NIM harus berupa 8 angka.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="editLayanan">Jenis Layanan</label>
+          <select id="editLayanan" required>
+            <option value="Administrasi">Administrasi</option>
+            <option value="Akademik">Akademik</option>
+            <option value="Keuangan">Keuangan</option>
+            <option value="Lainnya">Lainnya</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="editKeterangan">Keterangan</label>
+          <textarea id="editKeterangan" rows="4" placeholder="Masukkan keterangan (opsional)"></textarea>
+        </div>
+
+        <div class="btn-group">
+          <button type="submit">Simpan Perubahan</button>
+          <button type="button" id="batalEdit" class="danger">Batal</button>
+        </div>
+      </form>
     </div>
   </div>
 
